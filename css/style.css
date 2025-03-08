@@ -1,0 +1,416 @@
+﻿@import url('../css2');
+
+/* Estilos gerais */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000001;
+  color: #FFFFFF;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Contêiner principal para os perfis */
+.all {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas com tamanho igual */
+  gap: 30px; /* Espaçamento entre os perfis */
+  justify-content: center; /* Centraliza a grade */
+  padding: 10px; /* Espaçamento interno */
+  max-width: 1200px; /* Largura máxima do contêiner */
+  margin: 0 auto; /* Centraliza o contêiner na página */
+  overflow-y: auto; /* Permite rolagem vertical */
+  max-height: 80vh; /* Altura máxima do contêiner */
+  scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+  -ms-overflow-style: none; /* Esconde a barra de rolagem no IE e Edge */
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera */
+.all::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilos para cada perfil */
+.discord-profile {
+  width: 100%; /* Ocupa 100% da largura da célula da grade */
+  max-width: 210px; /* Define um tamanho máximo para o perfil */
+  margin: 0 auto 50px; /* Centraliza o perfil na célula */
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(97, 97, 97, 0.4);
+  color: #FFFFFF;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #a30000 100%);
+}
+
+/* Estilos para a imagem do perfil */
+.pfp img {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: transparent;
+  cursor: pointer;
+  background-color: #444; /* Fallback color */
+}
+
+/* Efeito de hover na imagem do perfil */
+.pfp img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* Estilos para o nome do perfil */
+.nick {
+  font-family: 'LaachirDeeper-Bold', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 -9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Estilos para o subnome do perfil */
+.subnick {
+  font-family: 'LaachirDeeper-Bold', sans-serif;
+  font-size: 16px;
+  opacity: 0.7;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Estilos para os badges */
+.badges {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.badge {
+  width: 23px;
+  height: 23px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  position: relative;
+}
+
+.badge[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+.badge[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #444;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+.badge[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* Estilos para os botões sociais */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-button {
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-button:hover {
+  background-color: #eb0091;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+/* Estilos para o botão do servidor */
+.server-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.server-button-text {
+  font-family: '';
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-left: 10px;
+  cursor: default;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .all {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas menores */
+  }
+}
+
+@media (max-width: 900px) {
+  .all {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas ainda menores */
+  }
+}
+
+@media (max-width: 600px) {
+  .all {
+    grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+  }
+}
+
+/* Estilos para o título piscante */
+.blinking-title {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.desenvolvido {
+  position: fixed;
+  bottom: 10px;
+  left: 49%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  z-index: 2;
+  font-family: 'Arial', sans-serif;
+  user-select: none;
+}
+
+.copyright {
+  position: fixed;
+  bottom: 30px;
+  left: 49%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  z-index: 2;
+  font-family: 'Arial', sans-serif;
+  user-select: none;
+}
+
+@font-face {
+  font-family: "LaachirDeeper-Bold";
+  src: url(../fonts/LaachirDeeper-Bold.ttf);
+}
+
+@media (hover: hover) {
+  .overlayhover {
+    display: block;
+  }
+  .overlayno-hover {
+    display: none;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Estilos para a página "Sobre Nós" */
+.sobre-container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.sobre-container h1 {
+  font-family: 'LaachirDeeper-Bold', sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.sobre-container p {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Estilos para o botão do Discord */
+.discord-button {
+  position: fixed; /* Fixa o botão na tela */
+  bottom: 20px; /* Distância do fundo */
+  right: 20px; /* Distância da direita */
+  background-color: white; /* Cor de fundo do botão */
+  border: none; /* Remove a borda */
+  border-radius: 50%; /* Botão redondo */
+  width: 50px; /* Largura */
+  height: 50px; /* Altura */
+  cursor: pointer; /* Cursor de clique */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
+.discord-button i {
+  font-size: 24px; /* Tamanho do ícone */
+  color: #bf0909; /* Cor do ícone (azul do Discord) */
+}
+
+/* Estilos para o widget do Discord */
+.discord-widget {
+  position: fixed; /* Fixa o widget na tela */
+  bottom: 80px; /* Distância do fundo (acima do botão) */
+  right: 20px; /* Distância da direita */
+  display: none; /* Inicialmente oculto */
+  z-index: 1000; /* Garante que o widget fique acima de outros elementos */
+}
+
+.discord-widget iframe {
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Espaço entre o logo e o menu */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Preto com 70% de opacidade */
+  color: #fff;
+  border-bottom: 2px solid #eb0000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Estilos para o logo e texto */
+.navbar-emoji {
+  display: flex;
+  align-items: center;
+}
+
+.emoji {
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: 'LaachirDeeper-Bold', sans-serif;
+  font-size: 24px;
+  margin: 0;
+  white-space: nowrap; /* Impede que o texto quebre */
+}
+
+/* Estilos para o menu de navegação */
+.navbar-menu {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  display: flex;
+  justify-content: center; /* Centraliza os links */
+}
+
+.navbar-menu ul {
+  list-style: none;
+  display: flex;
+  margin-right: 135px;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin-left: 20px;
+}
+
+.navbar-menu li a {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Impede que o texto do menu quebre */
+}
+
+.navbar-menu li a:hover {
+  color: #eb0000;
+}
+
+/* Estilos para o conteúdo da página */
+.content {
+  padding-top: 80px; /* Espaço para a barra fixa no topo */
+  padding: 20px;
+  text-align: center;
+}

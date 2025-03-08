@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="blinking-title">A N T C O L I C A</title>
+    <link rel="icon" href="images/ant.png" type="image/png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/point.js"></script>
+    <script src="js/blocker.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/x.js"></script>
+</head>
+<body>
+        <!-- Barra de navegação no topo -->
+        <header class="navbar">
+            <div class="navbar-logo">
+                <img src="images/ant.png" alt="Logo ANT COLICA" class="logo-img"> <!-- Imagem do logo -->
+                <h1 class="logo-text">ANT COLICA</h1> <!-- Texto do logo -->
+            </div>
+            <nav class="navbar-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+         <div class="navbar-emoji"></div>
+            <img src="images/sangue.png" alt="Emoji Sangue" class="emoji"> <!--Emoji ao lado-->
+        </div>
+    </header>
+        </header>
+
+    <!-- Vídeo de fundo -->
+    <video class="video-background" autoplay loop muted>
+        <source src="media/letisgo.mp4" type="video/mp4">
+    </video>
+
+    <!-- Áudio de fundo -->
+    <audio loop preload="auto" id="audio">
+        <source src="media/kibado.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Overlay -->
+    <div class="overlay">
+        <div class="overlay-content">
+            <img src="images/ant.png" alt="Logo ant" class="png">
+            <button onclick="closeOverlay()">Clica aqui!</button>
+        </div>
+    </div>
+
+    <!-- Script para fechar a overlay e iniciar o áudio -->
+    <script>
+        function closeOverlay() {
+            var overlay = document.querySelector('.overlay');
+            overlay.style.display = 'none'; // Esconde a overlay
+
+            var audio = document.getElementById("audio");
+            audio.volume = 0.5; // Define o volume
+            audio.play(); // Inicia o áudio
+        }
+
+    </script>
+    <!-- Botão do Discord -->
+    <button id="discord-button" class="discord-button">
+        <i class="fab fa-discord"></i> <!-- Ícone do Discord -->
+    </button>
+
+    <!-- Widget do Discord (inicialmente oculto) -->
+    <div id="discord-widget" class="discord-widget">
+        <iframe src="https://discord.com/widget?id=1279985286188634132&theme=dark" 
+                width="350" 
+                height="500" 
+                allowtransparency="true" 
+                frameborder="0" 
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+    </div>
+
+    <!-- Script para controlar o botão e o widget -->
+    <script>
+        // Função para alternar a visibilidade do widget
+        document.getElementById('discord-button').addEventListener('click', function() {
+            var widget = document.getElementById('discord-widget');
+            if (widget.style.display === 'none' || widget.style.display === '') {
+                widget.style.display = 'block'; // Mostra o widget
+            } else {
+                widget.style.display = 'none'; // Esconde o widget
+            }
+        });
+    </script>
+
+    <!-- Contêiner dos perfis -->
+    <div class="all">
+        <!-- Perfil kyan -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="936500672793296947" src="#">
+                </div>
+                <div class="nickr" data-user-id="936500672793296947"></div>
+                <div class="subnick" data-user-id="936500672793296947"></div>
+                <div class="badges">
+                    <!-- boost -->
+                    <div class="badge" style="background-image: url('images/porco.png');" data-tooltip="Apoiador Inicial"></div>
+                </div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                    <a href="https://www.behance.net/ayat21" target="_blank" class="social-button">
+                        <i class="fa-solid fa-shop" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">toma jack toma</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil forgiven -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="806786698641539092" src="#">
+                </div>
+                <div class="nickr" data-user-id="806786698641539092"></div>
+                <div class="subnick" data-user-id="806786698641539092"></div>
+                <div class="badges">
+                    <!-- boost -->
+                    <div class="badge" style="background-image: url('images/level2.png');" data-tooltip="Impulsionando o servidor desde 30 de dez. de 2024"></div>
+                </div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://www.tiktok.com/@clownsarenotfunny" target="_blank" class="social-button">
+                        <i class="fab fa-tiktok social-icon"></i>
+                    </a>
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">Be Lilith, Never Eve.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil almeida -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="928474704052899861" src="#">
+                </div>
+                <div class="nickr" data-user-id="928474704052899861"></div>
+                <div class="subnick" data-user-id="928474704052899861"></div>
+                <div class="badges">
+                    <!-- nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 19 de fev. de 2025"></div>
+                    <!-- boost -->
+                    <div class="badge" style="background-image: url('images/level9.png');" data-tooltip="Impulsionando o servidor desde 19 de fev. de 2025"></div>
+                </div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">Quem é do 7 não mostra</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil glx -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="703722401950597170" src="#">
+                </div>
+                <div class="nickr" data-user-id="703722401950597170"></div>
+                <div class="subnick" data-user-id="703722401950597170"></div>
+                <div class="nick subnick"></div>
+                <div class="badges">
+                    <!-- nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 10 de jul. de 2024"></div>
+                    <!-- boost -->
+                    <div class="badge" style="background-image: url('images/level5.png');" data-tooltip="Impulsionando o servidor desde 10 de aug. de 2024"></div>
+                </div>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/glxsad/" target="_blank" class="social-button">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">O tal do 00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil glz -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="541313410319646732" src="#">
+                </div>
+                <div class="nickr" data-user-id="541313410319646732"></div>
+                <div class="subnick" data-user-id="541313410319646732"></div>
+                <div class="badges">
+                    <!-- nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 10 de jul. de 2024"></div>
+                    <!-- boost -->
+                    <div class="badge" style="background-image: url('images/level8.png');" data-tooltip="Impulsionando o servidor desde 10 de aug. de 2024"></div>
+                </div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">Quem ta pagando ta dormindo.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil da Ana -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="1297615751469072524" src="#">
+                </div>
+                <div class="nickr" data-user-id="1297615751469072524"></div>
+                <div class="subnick" data-user-id="1297615751469072524"></div>
+                <div class="badges">
+                    <!-- Badge nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 11 de fev. de 2025"></div>
+                    <!-- Badge boost -->
+                    <div class="badge" style="background-image: url('images/lvl1.png');" data-tooltip="Impulsionando o servidor desde 11 de fev. de 2025"></div>
+                </div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/ilyzs0" target="_blank" class="social-button">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">desassossego na alma, na crise eu encontro a calma!</div>
+                </div>
+            </div>
+        </div>
+                <!-- Perfil do fiel -->
+                <div class="discord-profile">
+                    <div class="profile animate__animated animate__fadeInUp animate__fast">
+                        <div class="pfp">
+                            <img class="profile-img" data-user-id="903417905151090698" src="#">
+                        </div>
+                        <div class="nickr" data-user-id="903417905151090698"></div>
+                        <div class="subnick" data-user-id="903417905151090698"></div>
+                        <div class="badges">
+                            <!-- Badge boost -->
+                            <div class="badge" style="background-image: url('images/lvl1.png');" data-tooltip="Impulsionando o servidor desde 11 de fev. de 2025"></div>
+                        </div>
+                        <div class="nick subnick"></div>
+                        <div class="social-buttons">
+                            <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                                <i class="fab fa-discord social-icon"></i>
+                            </a>
+                        </div>
+                        <div class="server-button">
+                            <div class="server-button-text">mais um fã do leal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil do kauan -->
+                <div class="discord-profile">
+                    <div class="profile animate__animated animate__fadeInUp animate__fast">
+                        <div class="pfp">
+                            <img class="profile-img" data-user-id="978322359222169642" src="#">
+                        </div>
+                        <div class="nickr" data-user-id="978322359222169642"></div>
+                        <div class="subnick" data-user-id="978322359222169642"></div>
+                        <div class="badges">
+                            <!-- Badge boost -->
+                            <div class="badge" style="background-image: url('images/lvl1.png');" data-tooltip="Impulsionando o servidor desde 11 de fev. de 2025"></div>
+                        </div>
+                        <div class="nick subnick"></div>
+                        <div class="social-buttons">
+                            <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                                <i class="fab fa-discord social-icon"></i>
+                            </a>
+                        </div>
+                        <div class="server-button">
+                            <div class="server-button-text">quero a mãe do leal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil do deidara -->
+                <div class="discord-profile">
+                    <div class="profile animate__animated animate__fadeInUp animate__fast">
+                        <div class="pfp">
+                            <img class="profile-img" data-user-id="1074866788518592522" src="#">
+                        </div>
+                        <div class="nickr" data-user-id="1074866788518592522"></div>
+                        <div class="subnick" data-user-id="1074866788518592522"></div>
+                        <div class="badges">
+                            <!-- Badge nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 05 de dez. de 2024"></div>
+                            <!-- Badge boost -->
+                            <div class="badge" style="background-image: url('images/level7.png');" data-tooltip="Impulsionando o servidor desde 05 de dez. de 2024"></div>
+                        </div>
+                        <div class="nick subnick"></div>
+                        <div class="social-buttons">
+                            <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                                <i class="fab fa-discord social-icon"></i>
+                            </a>
+                        </div>
+                        <div class="server-button">
+                            <div class="server-button-text">vivendo o impossível</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil da kiwi -->
+                <div class="discord-profile">
+                    <div class="profile animate__animated animate__fadeInUp animate__fast">
+                        <div class="pfp">
+                            <img class="profile-img" data-user-id="446255997200367627" src="#">
+                        </div>
+                        <div class="nickr" data-user-id="446255997200367627"></div>
+                        <div class="subnick" data-user-id="446255997200367627"></div>
+                        <div class="badges">
+                            <!-- Badge nitro -->
+                    <div class="badge" style="background-image: url('images/1895-subscriber-nitro-animated.gif');" data-tooltip="Assinante desde 01 de abr. de 2024"></div>
+                            <!-- Badge boost -->
+                            <div class="badge" style="background-image: url('images/level5.png');" data-tooltip="Impulsionando o servidor desde 05 de mai. de 2024"></div>
+                        </div>
+                        <div class="nick subnick"></div>
+                        <div class="social-buttons">
+                            <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                                <i class="fab fa-discord social-icon"></i>
+                            </a>
+                        </div>
+                        <div class="server-button">
+                            <div class="server-button-text">Your love saved me†</div>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Perfil bibix -->
+        <div class="discord-profile">
+            <div class="profile animate__animated animate__fadeInUp animate__fast">
+                <div class="pfp">
+                    <img class="profile-img" data-user-id="1308834018044940338" src="#">
+                </div>
+                <div class="nickr" data-user-id="1308834018044940338"></div>
+                <div class="subnick" data-user-id="1308834018044940338"></div>
+                <div class="nick subnick"></div>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/Kojbix/" target="_blank" class="social-button">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                    <a href="https://discord.gg/antcolica" target="_blank" class="social-button">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                </div>
+                <div class="server-button">
+                    <div class="server-button-text">O rap é compromisso!</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        ANT COLICA ® 2025 - Todos os direitos reservados
+    </div>
+
+    <!-- Desenvolvido por-->
+     <div class="desenvolvido">
+        desenvolvido por kyan e glx 
+     </div>
+
+    <!-- Script para o efeito de inclinação (tilt) -->
+    <script>
+        VanillaTilt.init(document.querySelectorAll('.discord-profile'), {
+            glare: true,
+            maxGlare: 0.3,
+            gyroscope: false,
+            scale: 1.02,
+        });
+    </script>
+</body>
+</html>

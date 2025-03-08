@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - ANT COLICA</title>
+    <link rel="icon" href="images/ant.png" type="image/png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- Vídeo de fundo -->
+    <video class="video-background" autoplay loop muted>
+        <source src="media/letisgo.mp4" type="video/mp4">
+    </video>
+
+        <!-- Barra de navegação no topo -->
+        <header class="navbar">
+            <div class="navbar-logo">
+                <img src="images/ant.png" alt="Logo ANT COLICA" class="logo-img"> <!-- Imagem do logo -->
+                <h1 class="logo-text">ANT COLICA</h1> <!-- Texto do logo -->
+            </div>
+            <nav class="navbar-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+            <div class="navbar-emoji"></div>
+                <img src="images/sangue.png" alt="Emoji Sangue" class="emoji"> <!--Emoji ao lado-->
+            </div>
+        </header>
+
+    <!-- Conteúdo da página "Sobre Nós" -->
+    <div class="sobre-container">
+        <h1>Sobre Nós</h1>
+        <p>Somos a ANT COLICA, uma comunidade dedicada a...</p>
+        <!-- Adicione mais conteúdo sobre a equipe, história, etc. -->
+    </div>
+    <!-- Botão do Discord -->
+    <button id="discord-button" class="discord-button">
+        <i class="fab fa-discord"></i> <!-- Ícone do Discord -->
+    </button>
+
+    <!-- Widget do Discord (inicialmente oculto) -->
+    <div id="discord-widget" class="discord-widget">
+        <iframe src="https://discord.com/widget?id=1279985286188634132&theme=dark" 
+                width="350" 
+                height="500" 
+                allowtransparency="true" 
+                frameborder="0" 
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+    </div>
+
+    <!-- Script para controlar o botão e o widget -->
+    <script>
+        // Função para alternar a visibilidade do widget
+        document.getElementById('discord-button').addEventListener('click', function() {
+            var widget = document.getElementById('discord-widget');
+            if (widget.style.display === 'none' || widget.style.display === '') {
+                widget.style.display = 'block'; // Mostra o widget
+            } else {
+                widget.style.display = 'none'; // Esconde o widget
+            }
+        });
+    </script>
+</body>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        ANT COLICA ® 2025 - Todos os direitos reservados
+    </div>
+</body>
+</html>
